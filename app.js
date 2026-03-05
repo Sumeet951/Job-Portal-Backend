@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended:true}));
 //Third Party
 app.use(cookieParser());
 app.use(cors({
-  origin: "https://job-portal-7khr7sjsk-sumeets-projects-c876629d.vercel.app/", // frontend URL
+  origin: "https://job-portal-mu-ochre.vercel.app", // frontend URL
   credentials: true,               // allow cookies
 }));
 app.use(morgan('dev'));
