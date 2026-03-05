@@ -14,8 +14,11 @@ app.use(express.urlencoded({extended:true}));
 //Third Party
 app.use(cookieParser());
 app.use(cors({
-  origin: "https://job-portal-mu-ochre.vercel.app" || "http://localhost:5174/", // frontend URL
-  credentials: true,               // allow cookies
+  origin: [
+    "https://job-portal-mu-ochre.vercel.app",
+    "http://localhost:5174"
+  ],
+  credentials: true,
 }));
 app.use(morgan('dev'));
 
