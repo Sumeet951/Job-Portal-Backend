@@ -107,7 +107,7 @@ const { fullname, email, phoneNumber, bio, skills } = req.body || {};
         let cloudResponse;   // ✅ declare here
         let file;
        if(req.file){
-         let file=req.file;
+         file=req.file;
         const fileUri=getDataUri(file);
     cloudResponse=await v2.uploader.upload(fileUri.content)
        }
