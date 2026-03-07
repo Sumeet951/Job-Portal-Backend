@@ -104,10 +104,11 @@ export const updateProfile=async(req,res,next)=>{
     try{
         console.log(req.body)
 const { fullname, email, phoneNumber, bio, skills } = req.body || {};
+        let cloudResponse;   // ✅ declare here
        if(req.file){
          const file=req.file;
         const fileUri=getDataUri(file);
-    const cloudResponse=await v2.uploader.upload(fileUri.content)
+    cloudResponse=await v2.uploader.upload(fileUri.content)
        }
         // if(!fullname || !email || !phoneNumber || !bio || !skills){
         //     return next (new AppError("All fields are required",400))
@@ -120,6 +121,8 @@ const skillsArray = skills ? skills.split(",") : [];
             return next (new AppError("User not found",404))
         }
         //Updating Data
+         
+
        if(fullname) user.fullname=fullname;
         if(email) user.email=email;
         if(phoneNumber) user.phoneNumber=phoneNumber;
