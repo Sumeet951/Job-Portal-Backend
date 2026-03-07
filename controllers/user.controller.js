@@ -105,8 +105,9 @@ export const updateProfile=async(req,res,next)=>{
         console.log(req.body)
 const { fullname, email, phoneNumber, bio, skills } = req.body || {};
         let cloudResponse;   // ✅ declare here
+        let file;
        if(req.file){
-         const file=req.file;
+         let file=req.file;
         const fileUri=getDataUri(file);
     cloudResponse=await v2.uploader.upload(fileUri.content)
        }
